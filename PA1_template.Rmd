@@ -25,7 +25,7 @@ The data for this assignment can be downloaded from the course web site:
 [link](https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip)
 
 #### Code for setting directory on desktop, downloading, unzipping and reading the dataset
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.keep='all'}
 username <- Sys.getenv('USERNAME') #getting the username in order to create a path
 directory <- paste('C:\\Users\\',username,'\\Desktop', sep='')
 setwd(directory)
@@ -71,21 +71,24 @@ total.steps <- dat %>%
 
 
 ### Histogram of the total number of steps taken each day
-```{r, message=FALSE}
+```{r, message=FALSE, fig.keep='all'}
 # Histogram using ggplot2
 require(ggplot2)
+```
+```{r}
 qplot(total.steps$steps, geom = 'histogram', binwidth=2000, xlab = 'Total Number of Steps each Day',
       main = 'Histogram of Total Number of Steps each day', fill=I("blue"),
       col=I("black"),
       alpha=I(.7))+
       scale_x_continuous(breaks=seq(0,23000,2000))+
       geom_vline(xintercept =  mean(total.steps$steps),col='red',lwd=2)
+      
 ```
 
 
 ### Mean and median number of steps taken each day
 
-```{r}
+```{r, fig.keep='all'}
 
 #average steps in a day
 mean.steps <- dat %>% 
@@ -109,7 +112,7 @@ median.steps <- dat %>%
 
 
 ### Time series plot of the average number of steps taken
-```{r}
+```{r, fig.keep='all'}
 # What is the average daily activity pattern?
 
 # Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and # the average number of steps taken, averaged across all days (y-axis)
@@ -141,7 +144,7 @@ mean.interval$interval[which.max(mean.interval$steps)]
 
 ### Imputing missing values
 
-```{r}
+```{r, fig.keep='all'}
 # Note that there are a number of days/intervals where there are missing values #(coded as NA). The presence of missing days may introduce bias into some calculations or summaries of the data.
 
 # Calculate and report the total number of missing values in the dataset 
@@ -154,7 +157,7 @@ Nmv
 Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 
-```{r}
+```{r, fig.keep='all'}
 # Create a new dataset that is equal to the original dataset but with the missing data filled in.
 dat.imputed  <- transform(dat, steps = ifelse(is.na(steps), round(mean(dat$steps, na.rm=TRUE)), steps))
 
@@ -181,7 +184,7 @@ Do these values differ from the estimates from the first part of the assignment?
 What is the impact of imputing missing data on the estimates of the total daily number of steps?
 
 
-```{r}
+```{r, fig.keep='all'}
 # mean and median total number of steps taken per day on data with imputed values
 mean(total.steps.imputed$steps)
 median(total.steps.imputed$steps)
@@ -211,7 +214,7 @@ Use the dataset with the filled-in missing values for this part. (dat.imputed)
 Create a new factor variable in the dataset with two levels - "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
 
 
-```{r}
+```{r, fig.keep='all'}
 dat.imputed$day 
 for ( i in 1:nrow(dat.imputed)){
       
