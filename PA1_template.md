@@ -276,12 +276,19 @@ hist(total.steps.imputed$steps, breaks= 10, xlab = 'Total Number of Steps each D
 ## Warning in axis(2, ...): "ub" is not a graphical parameter
 ```
 
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+
 ```r
 axis(1,seq(0,25000,by=1000))
+```
+
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-2.png)
+
+```r
 abline(v = mean(total.steps.imputed$steps), col = "blue", lwd = 2)
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-3.png)
 
 
 
