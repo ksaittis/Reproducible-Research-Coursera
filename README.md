@@ -1,5 +1,4 @@
-# Reproducible-Research-Coursera
-Reproducible Research Course
+## Reproducible Research Coursera
 
 Week 1 Assignment
 
