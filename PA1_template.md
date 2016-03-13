@@ -255,34 +255,12 @@ total.steps.imputed <- dat.imputed %>%
 ```
 
 ```r
-hist(total.steps.imputed$steps, breaks= 10, xlab = 'Total Number of Steps each Day',
-     main = 'Histogram of Total Number of Steps each day', las=1,
-     ub="Imputted Missing Values using the mean of interval steps", 
-     col='lightBlue',xaxt='n')+
-axis(1,seq(0,25000,by=1000))+
-abline(v = mean(total.steps.imputed$steps), col = "blue", lwd = 2)
-```
-
-```
-## Warning in plot.window(xlim, ylim, "", ...): "ub" is not a graphical
-## parameter
-```
-
-```
-## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...):
-## "ub" is not a graphical parameter
-```
-
-```
-## Warning in axis(1, ...): "ub" is not a graphical parameter
-```
-
-```
-## Warning in axis(2, ...): "ub" is not a graphical parameter
-```
-
-```
-## Error in hist(total.steps.imputed$steps, breaks = 10, xlab = "Total Number of Steps each Day", : non-numeric argument to binary operator
+qplot(total.steps.imputed$steps, geom = 'histogram', binwidth=2000, xlab = 'Total Number of Steps each Day',
+      main = 'Histogram of Total Number of Steps each day', fill=I("blue"),
+      col=I("black"),
+      alpha=I(.7))+
+      scale_x_continuous(breaks=seq(0,23000,2000))+
+      geom_vline(xintercept = mean(total.steps.imputed$steps),col='black',lwd=2)
 ```
 
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)

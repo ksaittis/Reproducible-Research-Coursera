@@ -157,7 +157,7 @@ Nmv
 Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
 
 
-```{r, fig.keep='all'}
+```{r, fig.keep='all', warning=FALSE}
 # Create a new dataset that is equal to the original dataset but with the missing data filled in.
 dat.imputed  <- transform(dat, steps = ifelse(is.na(steps), round(mean(dat$steps, na.rm=TRUE)), steps))
 
@@ -169,12 +169,13 @@ total.steps.imputed <- dat.imputed %>%
       summarize(steps = sum(steps)) %>%
       print
 
-hist(total.steps.imputed$steps, breaks= 10, xlab = 'Total Number of Steps each Day',
-     main = 'Histogram of Total Number of Steps each day', las=1,
-     ub="Imputted Missing Values using the mean of interval steps", 
-     col='lightBlue',xaxt='n')+
-axis(1,seq(0,25000,by=1000))+
-abline(v = mean(total.steps.imputed$steps), col = "blue", lwd = 2)
+qplot(total.steps.imputed$steps, geom = 'histogram', binwidth=2000, xlab = 'Total Number of Steps each Day',
+      main = 'Histogram of Total Number of Steps each day', fill=I("blue"),
+      col=I("black"),
+      alpha=I(.7))+
+      scale_x_continuous(breaks=seq(0,23000,2000))+
+      geom_vline(xintercept = mean(total.steps.imputed$steps),col='black',lwd=2)
+
 ```
 
 
