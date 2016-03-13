@@ -6,7 +6,7 @@ output: html_document
 ---
 
 
-![](C:\\Users\\kwnstantinos\\Desktop\\Reproducible Research\\coursera.png)
+![alt tag](https://github.com/ksaittis/Reproducible-Research-Coursera/blob/master/figure/coursera.png)
 
 ## Week 1 Assignment: Reproducible Research
 
