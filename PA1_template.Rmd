@@ -172,8 +172,8 @@ total.steps.imputed <- dat.imputed %>%
 hist(total.steps.imputed$steps, breaks= 10, xlab = 'Total Number of Steps each Day',
      main = 'Histogram of Total Number of Steps each day', las=1,
      ub="Imputted Missing Values using the mean of interval steps", 
-     col='lightBlue',xaxt='n')
-axis(1,seq(0,25000,by=1000))
+     col='lightBlue',xaxt='n')+
+axis(1,seq(0,25000,by=1000))+
 abline(v = mean(total.steps.imputed$steps), col = "blue", lwd = 2)
 ```
 

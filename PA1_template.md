@@ -258,7 +258,9 @@ total.steps.imputed <- dat.imputed %>%
 hist(total.steps.imputed$steps, breaks= 10, xlab = 'Total Number of Steps each Day',
      main = 'Histogram of Total Number of Steps each day', las=1,
      ub="Imputted Missing Values using the mean of interval steps", 
-     col='lightBlue',xaxt='n')
+     col='lightBlue',xaxt='n')+
+axis(1,seq(0,25000,by=1000))+
+abline(v = mean(total.steps.imputed$steps), col = "blue", lwd = 2)
 ```
 
 ```
@@ -279,19 +281,11 @@ hist(total.steps.imputed$steps, breaks= 10, xlab = 'Total Number of Steps each D
 ## Warning in axis(2, ...): "ub" is not a graphical parameter
 ```
 
+```
+## Error in hist(total.steps.imputed$steps, breaks = 10, xlab = "Total Number of Steps each Day", : non-numeric argument to binary operator
+```
+
 ![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
-
-```r
-axis(1,seq(0,25000,by=1000))
-```
-
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-2.png)
-
-```r
-abline(v = mean(total.steps.imputed$steps), col = "blue", lwd = 2)
-```
-
-![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-3.png)
 
 
 
