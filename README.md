@@ -1,6 +1,6 @@
 ## Reproducible Research Coursera
 
-![alt tag]()
+![alt tag](https://github.com/ksaittis/Reproducible-Research-Coursera/blob/master/figure/coursera.png)
 
 
 Week 1 Assignment
