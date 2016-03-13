@@ -101,16 +101,18 @@ total.steps <- dat %>%
 ```r
 # Histogram using ggplot2
 require(ggplot2)
-plot1 <- qplot(total.steps$steps, geom = 'histogram', binwidth=2000, xlab = 'Total Number of Steps each Day',
+```
+
+```r
+qplot(total.steps$steps, geom = 'histogram', binwidth=2000, xlab = 'Total Number of Steps each Day',
       main = 'Histogram of Total Number of Steps each day', fill=I("blue"),
       col=I("black"),
       alpha=I(.7))+
       scale_x_continuous(breaks=seq(0,23000,2000))+
       geom_vline(xintercept =  mean(total.steps$steps),col='red',lwd=2)
-plot1
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 
 ### Mean and median number of steps taken each day
@@ -176,7 +178,7 @@ plot(mean.interval, type='l', main= 'Mean number of steps in a 5-minute interval
      ylab= 'Mean number of steps')
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-1.png)
 
 ```r
 # plotting using the ggplot2 library
@@ -185,7 +187,7 @@ ggplot( data = mean.interval, aes( interval, steps )) + geom_line()+
            title='Timeseries: Mean number of steps per day')
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-2.png)
+![plot of chunk unnamed-chunk-6](figure/unnamed-chunk-6-2.png)
 
 ```r
 # Which 5-minute interval, on average across all the days in the dataset, #contains the maximum number of steps?
@@ -277,19 +279,19 @@ hist(total.steps.imputed$steps, breaks= 10, xlab = 'Total Number of Steps each D
 ## Warning in axis(2, ...): "ub" is not a graphical parameter
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-1.png)
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
 
 ```r
 axis(1,seq(0,25000,by=1000))
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-2.png)
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-2.png)
 
 ```r
 abline(v = mean(total.steps.imputed$steps), col = "blue", lwd = 2)
 ```
 
-![plot of chunk unnamed-chunk-7](figure/unnamed-chunk-7-3.png)
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-3.png)
 
 
 
@@ -435,7 +437,7 @@ ggplot(dat.grouped, aes(interval,day.steps))+
       labs(x='Interval', y='steps')
 ```
 
-![plot of chunk unnamed-chunk-9](figure/unnamed-chunk-9-1.png)
+![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10-1.png)
 
 
 
