@@ -68,7 +68,13 @@ dat.steps <- tapply(dat$steps, dat$date, FUN = sum, na.rm = TRUE)
 # dat.steps
 
 require(dplyr)
+```
 
+```
+## Warning: package 'dplyr' was built under R version 3.2.3
+```
+
+```r
 total.steps <- dat %>%
       filter(!is.na(steps)) %>%
       group_by(date) %>%
@@ -101,6 +107,13 @@ total.steps <- dat %>%
 ```r
 # Histogram using ggplot2
 require(ggplot2)
+```
+
+```
+## Warning: package 'ggplot2' was built under R version 3.2.3
+```
+
+```r
 qplot(total.steps$steps, geom = 'histogram', binwidth=2000, xlab = 'Total Number of Steps each Day',
       main = 'Histogram of Total Number of Steps each day', fill=I("blue"),
       col=I("black"),
